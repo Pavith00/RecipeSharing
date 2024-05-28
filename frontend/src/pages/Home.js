@@ -2,7 +2,7 @@ import { useEffect } from "react" //to fetch data from backend.useEffect - funct
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
 // components
-import WorkoutDetails from "../components/WorkoutDetails"
+import WorkoutDetails from "../components/RecipeDetails"
 import WorkoutForm from "../components/WorkoutForm"
 
 const Home = () => {
