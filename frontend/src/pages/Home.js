@@ -1,35 +1,59 @@
 import { useEffect } from "react" //to fetch data from backend.useEffect - function and an array of dependencies. dependencies determine when the effect should run.If empty-effect runs only once after the initial render.If there are dependencies listed, the effect will run when any of those dependencies change.
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
+import { useRecipesContext } from "../hooks/useRecipesContext"
 
 // components
-import WorkoutDetails from "../components/RecipeDetails"
-import WorkoutForm from "../components/WorkoutForm"
+import RecipeDetails from "../components/RecipeDetails"
+import RecipeForm from "../components/RecipeForm"
 
 const Home = () => {
-  const { workouts, dispatch } = useWorkoutsContext()
+  const { recipes, dispatch } = useRecipesContext()
 
   useEffect(() => {
-    const fetchWorkouts = async () => {
-      const response = await fetch('/api/workouts')
+    const fetchRecipes = async () => {
+      const response = await fetch('/api/recipes')
       const json = await response.json()   //pass json
 
       if (response.ok) {
-        dispatch({type: 'SET_WORKOUTS', payload: json}) //set workout bcoz need to update the entire array of workout and payload going to be the full array of workouts
+        dispatch({ type: 'SET_RECIPES', payload: json }) //set workout bcoz need to update the entire array of workout and payload going to be the full array of workouts
       }
     }
 
-    fetchWorkouts()
+    fetchRecipes()
   }, [dispatch])   //whenever dispatch changes, the effect will run again.
 
   return (
     <div className="home">
-      <div className="workouts">
-        
-        {workouts && workouts.map(workout => (
-          <WorkoutDetails workout={workout} key={workout._id} />
+      <div className="recipes">
+        <div className="hero">
+          <div class="p-5 text-center bg-image rounded-3" >
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="image-container">
+
+
+                <h1 class="mb-3">Anybody Can Cook</h1><br/>
+                <h4 class="mb-3">Explore a world of culinary inspiration and savor the joy of <br />cooking with our diverse collection of mouthwatering recipes.</h4><br/>
+                <div className=" hero-button">
+
+                  <button type="button" class="hero-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                  </svg></button>
+                  <input type="text" class="hero-search" placeholder="Type to Search..."></input>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+        {recipes && recipes.map(recipe => (
+          <RecipeDetails recipe={recipe} key={recipe._id} />
         ))}
       </div>
-      <WorkoutForm />
+      <RecipeForm />
     </div>
   )
 }

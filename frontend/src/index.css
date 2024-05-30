@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Goblin+One&family=Luckiest+Guy&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +8,116 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.hero {
+  position: relative;
+  background-image: url('https://whitestonebranding.com/wp-content/uploads/2023/01/WebsiteGIF.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 600px;
+  padding: 100px;
+  border-radius: 10px;
+
+}
+
+
+.hero h1 {
+  color: #04353f;
+  /* Text color */
+  font-size: 70px;
+  font-weight: 400;
+  font-family: "Caprasimo", serif;
+  font-style: normal;
+  text-shadow: 4px 4px 4px #fdfdfd;
+  margin-right: 500px;
+  width: 500px;
+}
+
+.hero h4 {
+  color: #0c505e;
+  /* Text color */
+  font-family: "Edu TAS Beginner", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin-right: 400px;
+  text-align: left;
+
+}
+
+.image-container {
+  flex: 1;
+  margin-left: 20px;
+  /* Adjust as needed */
+  background-image: url('https://wallpapers.com/images/hd/thanksgiving-dinner-plate-png-05212024-13q6y91qpbtpeg3n.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hero-button {
+  order: -1;
+  margin-right: 50%;
+
+
+}
+
+.hero-btn {
+  width: 65px;
+  height: 65px;
+  
+  outline: none;
+  border-radius: 50px;
+  border-color: aliceblue;
+  background-color: #04353f;
+  
+
+
+}
+
+.hero-search {
+  width: 1px;
+  outline: none;
+  padding-right: 0px;
+  padding-left: 0px;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  border-style: none;
+  
+ 
+
+}
+
+.hero-btn:focus~.hero-search {
+  width: 300px;
+  height: 40px;
+  border-radius: 0px;
+  background-color: #67b6c5;
+  border-radius: 25px;
+  
+  
+}
+
+.hero-search:focus {
+  width: 300px;
+  height: 40px;
+  border-radius: 0px;
+  background-color: #a9d1da;
+  border-radius: 5px;
+  
 }
