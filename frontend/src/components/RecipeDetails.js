@@ -6,14 +6,14 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 const RecipeDetails = ({ recipe }) => {
   const { dispatch } = useRecipesContext()
 
-  const handleClick = async () => { 
+  const handleClick = async () => {
     const response = await fetch('/api/recipes/' + recipe._id, {
-      method: 'DELETE'  
+      method: 'DELETE'
     })
     const json = await response.json()
 
     if (response.ok) {
-      dispatch({type: 'DELETE_RECIPE', payload: json})
+      dispatch({ type: 'DELETE_RECIPE', payload: json })
     }
   }
 

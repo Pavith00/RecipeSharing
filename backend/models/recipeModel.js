@@ -7,6 +7,10 @@ const recipeSchema = new Schema({
     type: String,
     required: true
   },
+  dishType: {
+    type: String,
+    required: true
+  },
   ingredients: {
     type: String,
     required: true
@@ -15,14 +19,26 @@ const recipeSchema = new Schema({
     type: String,
     required: true
   },
-  imageUrl:{
+  imageUrl: {
     type: String,
     required: true
   },
   cookingTime: {
     type: Number,
-    required: true,
-},
+    required: true
+  },
+  noOfServings:{
+    type:Number,
+    required:true
+  },
+  userName:{
+    type:String,
+    required:true
+  },
+  email:{
+    type:String,
+    required:true
+  },
 
 }, { timestamps: true })
 module.exports = mongoose.model('Recipe', recipeSchema)

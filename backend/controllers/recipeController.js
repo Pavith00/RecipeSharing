@@ -2,22 +2,22 @@ const Recipe = require('../models/recipeModel')
 const mongoose = require('mongoose')
 
 // get all recipes
-const getRecipes = async (req, res) => {         
-  const recipes = await Recipe.find({}).sort({createdAt: -1}) 
-  res.status(200).json(recipes)      
+const getRecipes = async (req, res) => {
+  const recipes = await Recipe.find({}).sort({ createdAt: -1 })
+  res.status(200).json(recipes)
 }
 // get a single recipe
 const getRecipe = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such Recipe'})
+    return res.status(404).json({ error: 'No such Recipe' })
   }
 
   const recipe = await Recipe.findById(id)
 
   if (!recipe) {
-    return res.status(404).json({error: 'No such Recipe'})
+    return res.status(404).json({ error: 'No such Recipe' })
   }
 
   res.status(200).json(recipe)
@@ -25,7 +25,7 @@ const getRecipe = async (req, res) => {
 
 // create a new recipe
 const createRecipe = async (req, res) => {
-  const {name, ingredients, instructions, imageUrl, cookingTime} = req.body
+  const { name, ingredients, instructions, imageUrl, cookingTime, dishType, noOfServings, userName, email } = req.body
 
   let emptyFields = []
 
@@ -44,13 +44,25 @@ const createRecipe = async (req, res) => {
   if (!cookingTime) {
     emptyFields.push('cookingTime')
   }
+  if (!dishType) {
+    emptyFields.push('dishType')
+  }
+  if (!noOfServings) {
+    emptyFields.push('noOfServings')
+  }
+  if (!userName) {
+    emptyFields.push('userName')
+  }
+  if (!email) {
+    emptyFields.push('email')
+  }
   if (emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
   }
 
   // add to the database
   try {
-    const recipe = await Recipe.create({name, ingredients, instructions, imageUrl, cookingTime })
+    const recipe = await Recipe.create({ name, ingredients, instructions, imageUrl, cookingTime, dishType, noOfServings, userName, email })
     res.status(200).json(recipe)
   } catch (error) {
     res.status(400).json({ error: error.message })
@@ -62,13 +74,13 @@ const deleteRecipe = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({error: 'No such recipe'})
+    return res.status(400).json({ error: 'No such recipe' })
   }
 
-  const recipe = await Eecipe.findOneAndDelete({_id: id})
+  const recipe = await Recipe.findOneAndDelete({ _id: id })
 
-  if(!recipe) {
-    return res.status(400).json({error: 'No such recipe'})
+  if (!recipe) {
+    return res.status(400).json({ error: 'No such recipe' })
   }
 
   res.status(200).json(recipe)
@@ -79,15 +91,15 @@ const updateRecipe = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({error: 'No such recipe'})
+    return res.status(400).json({ error: 'No such recipe' })
   }
 
-  const recipe = await Recipe.findOneAndUpdate({_id: id}, {
+  const recipe = await Recipe.findOneAndUpdate({ _id: id }, {
     ...req.body
   })
 
   if (!recipe) {
-    return res.status(400).json({error: 'No such recipe'})
+    return res.status(400).json({ error: 'No such recipe' })
   }
 
   res.status(200).json(recipe)

@@ -4,6 +4,7 @@ import { useRecipesContext } from "../hooks/useRecipesContext"
 // components
 import RecipeDetails from "../components/RecipeDetails"
 import RecipeForm from "../components/RecipeForm"
+import Login from "../components/Login"
 
 const Home = () => {
   const { recipes, dispatch } = useRecipesContext()
@@ -54,6 +55,7 @@ const Home = () => {
         ))}
       </div>
       <RecipeForm />
+      <Login/>
     </div>
   )
 }
