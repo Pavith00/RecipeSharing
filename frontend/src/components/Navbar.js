@@ -7,12 +7,14 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 100) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
+
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
 
@@ -25,26 +27,29 @@ const Navbar = () => {
   return (
     <header>
       <div className={`container ${isScrolled ? 'fixed-top' : ''}`}>
-        <nav className="navbar navbar-light bg-light fixed-top navbar-expand-lg">
-          <div className="container-fluid">
-          <a class="navbar-brand" href="#">
-    <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""/>
-    Bootstrap
-  </a>
-            <div className="d-flex align-items-center">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a><Link to="/" class="nav-link">Button 1</Link></a></li>
-              <li class="nav-item"><a><Link to="/" class="nav-link">Button 2</Link></a></li>
-              <li class="nav-item"><a><Link to="/" class="nav-link">Button 3</Link></a></li>
-              </ul>
+        {isScrolled && (
+          <nav className="navbar navbar-light bg-light fixed-top navbar-expand-lg">
+            <div className="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                Bootstrap
+              </a>
+              <div className="d-flex align-items-center">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item"><a><Link to="/" class="nav-link">Button 1</Link></a></li>
+                  <li class="nav-item"><a><Link to="/" class="nav-link">Button 2</Link></a></li>
+                  <li class="nav-item"><a><Link to="/" class="nav-link">Button 3</Link></a></li>
+                </ul>
+              </div>
+              <form className="d-flex ms-auto"> {/* 'ms-auto' pushes the search bar to the right */}
+                <a class="nav-item"><Link to="/" class="nav-link">
+                  <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                  Log in </Link></a>
+              </form>
+
             </div>
-            <form className="d-flex ms-auto"> {/* 'ms-auto' pushes the search bar to the right */}
-            <a class="nav-item"><Link to="/" class="nav-link">
-    <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""/>
-    Log in </Link></a>
-            </form>
-          </div>
-        </nav>
+          </nav>
+          )}
       </div>
     </header>
   );

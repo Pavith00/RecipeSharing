@@ -3,6 +3,7 @@ require('dotenv').config()   //install as dotenv-load environment variables from
 const express = require('express')//call express pkg
 const mongoose = require('mongoose')
 const recipeRoutes = require('./routes/recipes')
+const userRoutes = require('./routes/user')
 
 //express app
 const app = express()
@@ -16,7 +17,8 @@ app.use((req, res, next) => {
 })
 
 //routes
-app.use('/api/recipes', recipeRoutes)
+app.use('/api/recipes', recipeRoutes);
+app.use('/api/users', userRoutes);
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)

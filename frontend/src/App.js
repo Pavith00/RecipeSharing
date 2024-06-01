@@ -1,21 +1,44 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom' //install to create diff pages.BrowserRouter-wraps everywherewe want to use the router, Routes-wraps all our individual routes, Route-create a single route.2 prop-path & element
-
-// pages & components
-import Home from './pages/Home'
-import Navbar from './components/Navbar'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Acc from './pages/Acc';
+import Home from './pages/Home';
+import { UserContextProvider } from './context/userContext';
+import { RecipesContextProvider } from './context/RecipesContext';
+import RecipeDetails from './components/RecipeDetails';
+
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
-       
         <div className="pages">
+          <Navbar />
           <Routes>
+            <Route
+              path="/"
+              element={
+                <UserContextProvider>
+                  <Home />
+                </UserContextProvider>
+              }
+            />
             <Route 
-              path="/" 
-              element={<Acc/>} 
+              path="/recipe/:id" 
+              element={
+                <RecipesContextProvider>
+                  <RecipeDetails/>
+                </RecipesContextProvider>
+                
+              } 
+            />
+            <Route
+              path="/acc"
+              element={
+                <UserContextProvider>
+                  <Acc />
+                </UserContextProvider>
+              }
             />
           </Routes>
         </div>

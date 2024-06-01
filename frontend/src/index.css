@@ -201,7 +201,8 @@ code {
 }
 
 .login input[type="username"],
-.login input[type="password"] {
+.login input[type="password"],
+.login input[ type="text"] {
 
   width: 100%;
   padding: 11px;
@@ -215,20 +216,22 @@ code {
 }
 
 .login input[type="username"]:focus,
-.login input[type="password"]:focus{
+.login input[type="password"]:focus,
+.login input[ type="text"]:focus{
   box-shadow: none !important;
   outline: 0px !important;
   background-color: transparent;
 }
 
 .login input[type="username"]::placeholder,
-.login input[type="password"]::placeholder {
+.login input[type="password"]::placeholder,
+.login input[ type="text"] ::placeholder{
   color: #d6dddfa1; /* Set placeholder color */
 }
 
 
 .login .forgetPw {
-  padding-left: 38%;
+  padding-left: 25%;
   text-decoration: none;
   color:  #dbf0f1a2;
 }
@@ -258,6 +261,7 @@ code {
   padding-top: 10px;
 }
 
+
 .Acc {
   background-color: #073442;
   /* Blue background color */
@@ -275,6 +279,80 @@ code {
   position: relative;
 }
 
-.a{
-  padding: 100px 100px 100px 600px;
+.Acc .select-btn-lg{
+  width: 100%;
+  border-right: #0b4e5f ;
+  border-left: #177086;
+  border-top: #177086;
+  border-bottom: #177086;
+  border-style: solid;
+  border-radius: 25px;
+  background-color: #177086;
+
+  
+
+}
+
+.Acc .select-btn-reg{
+  width: 100%;
+  border-radius: 25px;
+  background-color: #177086;
+  border-left: #0b4e5f ;
+  border-right: #177086;
+  border-top: #177086;
+  border-bottom: #177086;
+  border-style: solid;
+  
+
+}
+
+
+.Acc .select-btn-lg:focus{
+  background-color: #8ec5d3;
+  color: #374f55;
+  border-color: #8ec5d3;
+  font-weight: 500;
+  box-shadow:0px 0px 10px 0px rgb(33, 213, 226 );
+
+}
+
+.Acc .select-btn-reg:focus{
+  background-color: #8ec5d3;
+  color: #374f55;
+  border-color: #8ec5d3;
+  font-weight: 500;
+  box-shadow:0px 0px 10px 0px rgb(33, 213, 226 );
+}
+
+.Acc .btn-grp{
+  padding: 10%;
+
+
+}
+
+.Acc-box{
+  padding: 1% 9% 9% 50%;
+}
+
+.recipe-details{
+  margin: 2% 2% 2% 2% ;
+  background-color: #05ee6633;
+  padding: 0% 2% 2% 2%;
+  border-radius: 25px;
+
+
+}
+
+.recipe-details h3{
+  padding: 2% 0%;
+  color: #0f7060;
+  font-family: "Caprasimo", serif;
+} 
+
+.recipe-details p{
+  color: #14463d;
+}
+
+.recipe-details p strong{
+  color: #1e7551;
 }

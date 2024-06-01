@@ -1,5 +1,6 @@
 import { useEffect } from "react" //to fetch data from backend.useEffect - function and an array of dependencies. dependencies determine when the effect should run.If empty-effect runs only once after the initial render.If there are dependencies listed, the effect will run when any of those dependencies change.
 import { useRecipesContext } from "../hooks/useRecipesContext"
+import { Link } from "react-router-dom"
 
 // components
 import RecipeDetails from "../components/RecipeDetails"
@@ -7,7 +8,10 @@ import RecipeForm from "../components/RecipeForm"
 import Login from "../components/Login"
 
 const Home = () => {
+
   const { recipes, dispatch } = useRecipesContext()
+
+
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -31,8 +35,8 @@ const Home = () => {
               <div class="image-container">
 
 
-                <h1 class="mb-3">Anybody Can Cook</h1><br/>
-                <h4 class="mb-3">Explore a world of culinary inspiration and savor the joy of <br />cooking with our diverse collection of mouthwatering recipes.</h4><br/>
+                <h1 class="mb-3">Anybody Can Cook</h1><br />
+                <h4 class="mb-3">Explore a world of culinary inspiration and savor the joy of <br />cooking with our diverse collection of mouthwatering recipes.</h4><br />
                 <div className=" hero-button">
 
                   <button type="button" class="hero-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search" viewBox="0 0 16 16">
@@ -41,21 +45,28 @@ const Home = () => {
                   <input type="text" class="hero-search" placeholder="Type to Search..."></input>
                 </div>
               </div>
-
-
-
-
             </div>
           </div>
 
         </div>
 
+        <div className="recipie-box">
+          <h4>{recipes.name}</h4>
+
+        </div>
+
         {recipes && recipes.map(recipe => (
-          <RecipeDetails recipe={recipe} key={recipe._id} />
+          /*<RecipeDetails recipe={recipe} key={recipe._id} />*/
+          <div key={recipe._id} className="recipe-item">
+              <h4>{recipe.name}</h4>
+              {recipe.imageUrl && <img src={recipe.imageUrl} alt={recipe.name} />}
+              <Link to={`/recipe/${recipe._id}`}>View Recipe</Link>
+            </div>
         ))}
       </div>
       <RecipeForm />
-      <Login/>
+
+
     </div>
   )
 }
