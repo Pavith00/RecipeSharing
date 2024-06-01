@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const imgurl6='https://cookcraftco.com/cdn/shop/files/cookcraft_logo_1000x1000.png?v=1614318222';
+  const imgurl7='https://static.vecteezy.com/system/resources/thumbnails/020/788/814/small_2x/icon-symbol-or-website-admin-social-login-element-concept-3d-rendering-png.png';
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -30,9 +31,9 @@ const Navbar = () => {
         {isScrolled && (
           <nav className="navbar navbar-light bg-light fixed-top navbar-expand-lg">
             <div className="container-fluid">
-              <a class="navbar-brand" href="#">
-                <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
-                Bootstrap
+              <a class="navbar-brand" href="/">
+              <img src={imgurl6} alt="Description of the image" height="30" class="d-inline-block align-top" />
+
               </a>
               <div className="d-flex align-items-center">
                 <ul class="navbar-nav mr-auto">
@@ -43,8 +44,9 @@ const Navbar = () => {
               </div>
               <form className="d-flex ms-auto"> {/* 'ms-auto' pushes the search bar to the right */}
                 <a class="nav-item"><Link to="/login" class="nav-link">
-                  <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
-                  Log in </Link></a>
+                <img src={imgurl7} alt="Description of the image" height="40" class="d-inline-block align-top" />
+
+                  </Link></a>
               </form>
 
             </div>

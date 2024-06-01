@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useLogin } from "../hooks/useLogin"
 
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const {login, error, isLoading} = useLogin()
+    const { login, error, isLoading } = useLogin()
+    const navigate = useNavigate(); // Get the navigate function
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        await login(email, password); // Call the login function
 
-        await login(email, password)
-    }
+        // If there is no error, navigate to dashboard upon successful login
+        if (!error) {
+            navigate('/addRec');
+        }
+    };
 
     return (
         <div>
@@ -23,7 +28,6 @@ function Login() {
                     <p><input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} /></p>
                     <button disabled={isLoading}>Log up</button>
                     {error && <div className="error">{error}</div>}
-
                 </form>
                 {error && <div className="error">{error}</div>}
                 <div className='login-check'>

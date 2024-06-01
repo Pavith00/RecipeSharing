@@ -8,6 +8,8 @@ import { RecipesContextProvider } from './context/RecipesContext';
 import RecipeDetails from './components/RecipeDetails';
 import Login from './components/Login';
 import { AuthContextProvider } from './context/AuthContext';
+import RecipeForm from './components/RecipeForm';
+import RecipieAdd from './pages/RecipieAdd';
 
 
 
@@ -36,11 +38,11 @@ function App() {
               } 
             />
             <Route
-              path="/acc"
+              path="/addRec"
               element={
-                <AuthContextProvider>
-                  <Acc />
-                </AuthContextProvider>
+                <RecipesContextProvider>
+                  <RecipeForm/>
+                </RecipesContextProvider>
               }
             />
             <Route
@@ -48,6 +50,14 @@ function App() {
               element={
                 <AuthContextProvider>
                   <Acc />
+                </AuthContextProvider>
+              }
+            />
+            <Route
+              path="/add"
+              element={
+                <AuthContextProvider>
+                  <RecipieAdd />
                 </AuthContextProvider>
               }
             />

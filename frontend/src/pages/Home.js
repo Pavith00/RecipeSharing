@@ -2,14 +2,11 @@ import { useEffect } from "react" //to fetch data from backend.useEffect - funct
 import { useRecipesContext } from "../hooks/useRecipesContext"
 import { Link } from "react-router-dom"
 
-// components
-import RecipeDetails from "../components/RecipeDetails"
-import RecipeForm from "../components/RecipeForm"
-import Login from "../components/Login"
-
 const Home = () => {
 
   const { recipes, dispatch } = useRecipesContext()
+  const imgurl6='https://cookcraftco.com/cdn/shop/files/cookcraft_logo_1000x1000.png?v=1614318222';
+
 
 
 
@@ -32,9 +29,9 @@ const Home = () => {
 
         <nav class="navbar navbar-light bg-light">
 
-          <a class="navbar-brand" href="#">
-            <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
-            Bootstrap
+          <a class="navbar-brand" href="/">
+          <img src={imgurl6} alt="Description of the image" height="30" class="d-inline-block align-top" />
+
           </a>
           <div className=" hero-button">
 
@@ -87,7 +84,7 @@ const Home = () => {
         </div>
 
       </div>
-      <RecipeForm />
+
 
 
     </div>
