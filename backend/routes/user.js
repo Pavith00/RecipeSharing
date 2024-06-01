@@ -1,23 +1,14 @@
 const express = require('express')
-const {
-  getUser,  
-  createUser, 
-  deleteUser, 
-  
-} = require('../controllers/userController')
+
+// controller functions
+const { loginUser, signupUser } = require('../controllers/userController')
 
 const router = express.Router()
 
+// login route
+router.post('/login', loginUser)
 
-// GET a single ruser
-router.get('/:id', getUser)
-
-// POST a new ruser
-router.post('/', createUser)
-
-// DELETE a ruser
-router.delete('/:id', deleteUser)
-
-
+// signup route
+router.post('/signup', signupUser)
 
 module.exports = router

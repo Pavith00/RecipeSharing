@@ -29,16 +29,43 @@ const RecipeDetails = () => {
 
   return (
     <div className="recipe-details">
-      <h3>{recipe.name}</h3>
-      <p><strong>dishType: </strong><br/>{recipe.dishType}</p>
-      <p><strong>ingredients: </strong><br/>{recipe.ingredients}</p>
-      <p><strong>instructions: </strong><br/>{recipe.instructions}</p>
-      <p>{recipe.imageUrl && <img src={recipe.imageUrl} alt={recipe.name} />}</p>
-      <p><strong>cookingTime: </strong><br/>{recipe.cookingTime}</p>
-      <p><strong>noOfServings: </strong><br/>{recipe.noOfServings}</p>
-      <p><strong>userName: </strong><br/>{recipe.userName}</p>
-      <p><strong>email: </strong><br/>{recipe.email}</p>
-      <p>{formatDistanceToNow(new Date(recipe.createdAt), { addSuffix: true })}</p>
+
+      <table className='table-recipe'>
+        <tr>
+          <th className='table-img-cl'><h1>{recipe.name}</h1></th>
+          <th><h3>Details</h3></th>
+          <th><h3>Ingredients</h3></th>
+        </tr>
+        <tr>
+          <td className='table-img-cl'><p>{recipe.imageUrl && <img src={recipe.imageUrl} alt={recipe.name} style={{ width: '100%' }} />}</p></td>
+          <td>
+            <p><strong>dishType: </strong><br />{recipe.dishType}</p>
+            <p><strong>cookingTime: </strong><br />{recipe.cookingTime}</p>
+            <p><strong>noOfServings: </strong><br />{recipe.noOfServings}</p>
+          </td>
+          <td>
+            {recipe.ingredients}
+          </td>
+        </tr>
+      </table>
+
+      <hr />
+
+      <table className='table-recipe'>
+        <tr>
+          <th><h3>instructions</h3></th>
+        </tr>
+        <tr>
+          <td>{recipe.instructions}</td>
+        </tr>
+
+      </table>
+      
+      <hr/>
+      <h3>Credits</h3>
+      <p><strong>userName: </strong><br />{recipe.userName}</p>
+      <p><strong>email: </strong><br />{recipe.email}</p>
+      <p><strong>Uploaded: </strong><br />{formatDistanceToNow(new Date(recipe.createdAt), { addSuffix: true })}</p>
     </div>
   );
 };

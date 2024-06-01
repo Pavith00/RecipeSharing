@@ -6,6 +6,9 @@ import Home from './pages/Home';
 import { UserContextProvider } from './context/userContext';
 import { RecipesContextProvider } from './context/RecipesContext';
 import RecipeDetails from './components/RecipeDetails';
+import Login from './components/Login';
+import { AuthContextProvider } from './context/AuthContext';
+
 
 
 function App() {
@@ -18,9 +21,9 @@ function App() {
             <Route
               path="/"
               element={
-                <UserContextProvider>
+                <AuthContextProvider>
                   <Home />
-                </UserContextProvider>
+                </AuthContextProvider>
               }
             />
             <Route 
@@ -35,11 +38,20 @@ function App() {
             <Route
               path="/acc"
               element={
-                <UserContextProvider>
+                <AuthContextProvider>
                   <Acc />
-                </UserContextProvider>
+                </AuthContextProvider>
               }
             />
+            <Route
+              path="/login"
+              element={
+                <AuthContextProvider>
+                  <Acc />
+                </AuthContextProvider>
+              }
+            />
+            
           </Routes>
         </div>
       </BrowserRouter>

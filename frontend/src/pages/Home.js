@@ -28,6 +28,24 @@ const Home = () => {
 
   return (
     <div className="home">
+      <div>
+
+        <nav class="navbar navbar-light bg-light">
+
+          <a class="navbar-brand" href="#">
+            <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+            Bootstrap
+          </a>
+          <div className=" hero-button">
+
+            <button type="button" class="hero-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg></button>
+            <input type="text" class="hero-search" placeholder="Type to Search..."></input>
+          </div>
+
+        </nav>
+      </div>
       <div className="recipes">
         <div className="hero">
           <div class="p-5 text-center bg-image rounded-3" >
@@ -37,17 +55,19 @@ const Home = () => {
 
                 <h1 class="mb-3">Anybody Can Cook</h1><br />
                 <h4 class="mb-3">Explore a world of culinary inspiration and savor the joy of <br />cooking with our diverse collection of mouthwatering recipes.</h4><br />
-                <div className=" hero-button">
 
-                  <button type="button" class="hero-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                  </svg></button>
-                  <input type="text" class="hero-search" placeholder="Type to Search..."></input>
-                </div>
               </div>
             </div>
           </div>
 
+        </div>
+
+        <div className=" hero-button">
+
+          <button type="button" class="hero-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+          </svg></button>
+          <input type="text" class="hero-search" placeholder="Type to Search..."></input>
         </div>
 
         <div className="recipie-box">
@@ -55,14 +75,17 @@ const Home = () => {
 
         </div>
 
-        {recipes && recipes.map(recipe => (
-          /*<RecipeDetails recipe={recipe} key={recipe._id} />*/
-          <div key={recipe._id} className="recipe-item">
-              <h4>{recipe.name}</h4>
-              {recipe.imageUrl && <img src={recipe.imageUrl} alt={recipe.name} />}
-              <Link to={`/recipe/${recipe._id}`}>View Recipe</Link>
-            </div>
-        ))}
+        <div className="recipe-container">
+          {recipes &&
+            recipes.map((recipe, index) => (
+              <div key={recipe._id} className={`recipe-item ${index % 3 === 2 ? 'last-in-row' : ''}`}>
+                <h4>{recipe.name}</h4>
+                {recipe.imageUrl && <img src={recipe.imageUrl} alt={recipe.name} />}<br /><br />
+                <Link to={`/recipe/${recipe._id}`} className="recipe-link">View Recipe</Link>
+              </div>
+            ))}
+        </div>
+
       </div>
       <RecipeForm />
 

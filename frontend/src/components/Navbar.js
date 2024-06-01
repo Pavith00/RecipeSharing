@@ -42,7 +42,7 @@ const Navbar = () => {
                 </ul>
               </div>
               <form className="d-flex ms-auto"> {/* 'ms-auto' pushes the search bar to the right */}
-                <a class="nav-item"><Link to="/" class="nav-link">
+                <a class="nav-item"><Link to="/login" class="nav-link">
                   <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
                   Log in </Link></a>
               </form>

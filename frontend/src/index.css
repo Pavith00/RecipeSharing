@@ -15,7 +15,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+/***Home***/
 .hero {
   position: relative;
   background-image: url('https://whitestonebranding.com/wp-content/uploads/2023/01/WebsiteGIF.gif');
@@ -53,7 +53,7 @@ code {
 
 }
 
-.image-container {
+.home .image-container {
   flex: 1;
   margin-left: 20px;
   /* Adjust as needed */
@@ -66,7 +66,7 @@ code {
   border-radius: 10px;
 }
 
-.image-container img {
+.home .image-container img {
   max-width: 100%;
   height: auto;
 }
@@ -79,8 +79,8 @@ code {
 }
 
 .hero-btn {
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
 
   outline: none;
   border-radius: 50px;
@@ -119,6 +119,40 @@ code {
   border-radius: 5px;
 
 }
+
+.home .recipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2%;
+}
+
+.home .recipe-item {
+  width: calc(33.33% - 20px); /* Adjust as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+  
+}
+
+.recipe-item h4{
+  color: #14533b;
+  font-weight: 400;
+  padding-left: 2%;
+  font-family: "Caprasimo", serif;
+}
+
+.home.last-in-row {
+  margin-right: 0;
+}
+
+.home .recipe-link{
+  text-decoration: none;
+  font-weight: 600;
+  color: #054b36;
+  padding-left: 2%;
+  
+}
+
+/***RecipeForm***/
 
 .create {
   max-width: 80%;
@@ -182,6 +216,8 @@ code {
   /* Darker blue on hover */
 }
 
+/***Login***/
+
 .login {
   width: 100%;
   height: 100%;
@@ -200,7 +236,7 @@ code {
   color: #d6f0f7
 }
 
-.login input[type="username"],
+.login input[type="email"],
 .login input[type="password"],
 .login input[ type="text"] {
 
@@ -215,7 +251,7 @@ code {
 
 }
 
-.login input[type="username"]:focus,
+.login input[type="email"]:focus,
 .login input[type="password"]:focus,
 .login input[ type="text"]:focus{
   box-shadow: none !important;
@@ -223,7 +259,7 @@ code {
   background-color: transparent;
 }
 
-.login input[type="username"]::placeholder,
+.login input[type="email"]::placeholder,
 .login input[type="password"]::placeholder,
 .login input[ type="text"] ::placeholder{
   color: #d6dddfa1; /* Set placeholder color */
@@ -261,6 +297,7 @@ code {
   padding-top: 10px;
 }
 
+/***Acc**/
 
 .Acc {
   background-color: #073442;
@@ -334,9 +371,11 @@ code {
   padding: 1% 9% 9% 50%;
 }
 
+/**recipedetails**/
+
 .recipe-details{
   margin: 2% 2% 2% 2% ;
-  background-color: #05ee6633;
+  background-color: #ffffff33;
   padding: 0% 2% 2% 2%;
   border-radius: 25px;
 
@@ -349,6 +388,12 @@ code {
   font-family: "Caprasimo", serif;
 } 
 
+.recipe-details h1{
+  padding: 2% 0%;
+  color: #0f7060;
+  font-family: "Caprasimo", serif;
+} 
+
 .recipe-details p{
   color: #14463d;
 }
@@ -356,3 +401,31 @@ code {
 .recipe-details p strong{
   color: #1e7551;
 }
+
+.table-recipe{
+  width: 100%;
+  
+}
+
+.table-recipe th{
+  padding:  0% 1%;
+  color: #1e7551;
+  border-left:1px solid rgba(15, 151, 99, 0.514);
+  max-width: 300px;
+  word-wrap: break-word; 
+  
+}
+
+.table-recipe td{
+  padding: 1%;
+  color: #1e7551;
+  border-left:1px solid rgba(15, 151, 99, 0.514);
+  vertical-align: top;
+}
+
+.table-img-cl{
+  border-left:2px solid rgb(255, 255, 255) !important;
+  width: 50%;
+}
+
+
