@@ -28,7 +28,7 @@ Welcome to the Recipe Sharing Website! This project is developed using the MERN 
 
 - **Backend**: Node.js, Express.js, MongoDB (Mongoose)
 - **Frontend**: React.js, React Router, Context API
-- **Others**: Axios, JWT Authentication
+- **Others**: Axios
 
 ## Screenshots
 
